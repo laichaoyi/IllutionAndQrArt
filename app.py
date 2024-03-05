@@ -52,18 +52,18 @@ def generate_image(prompt, negative_prompt, qrcode_image, width=768, height=768,
 # Gradio interface creation
 with gr.Blocks(title="Illusion|QR Code Art") as demo:
     gr.Markdown("""# Illusion|QR Code Art""")   
-    gr.Markdown("สร้างภาพลวงตาและ QrCode ด้วย Ai | fb.com/PromptAlchemist")  
+    gr.Markdown("Tạo ảnh minh hoạ QR code Ai | https://www.facebook.com/groups/hvaisd")  
     with gr.Row():
         prompt = gr.Textbox(label="Text Prompt", value="Vegetable cheese pizza, melted mozzarella, golden-brown crust, bubbling cheese surface, freshly baked, Italian cuisine, added vegetables: bell peppers, onions, black olives, cherry tomatoes, spinach, photorealistic")
         negative_prompt= gr.Textbox(label="Negative Prompt", value="Low quality, bad quality, worst quality, 3d, cartoon, painting, bad anatomy, NSFW, Nudity")
-        width = gr.Number(label="Width (กว้าง)", value=768)
-        height = gr.Number(label="Height(สูง)", value=768) 
+        width = gr.Number(label="Width (chiều ngang)", value=768)
+        height = gr.Number(label="Height(chiều dọc)", value=768) 
     with gr.Row():   
         guidance_scale = gr.Slider(label="CFG", value=7.5, minimum=0, maximum=10.0)
         controlnet_conditioning_scale = gr.Slider(label="ControlNet Weight", value=1.7, minimum=0, maximum=2.0)
         seed = gr.Number(label="Seed", value=1234)
         num_inference_steps = gr.Number(label="Steps", value=30)
-        invert_colors = gr.Checkbox(label="สลับสีภาพ Input", value=True)
+        invert_colors = gr.Checkbox(label="Swap colors Input", value=True)
     generate_button = gr.Button("Generate Image")
 
     with gr.Row():
